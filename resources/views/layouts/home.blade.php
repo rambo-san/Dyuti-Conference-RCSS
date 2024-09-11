@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--     <link rel="icon" type="image/png" sizes="32x32" href="/images/fav-icon/i.png">
       <link rel="icon" type="image/png" sizes="16x16" href="/images/fav-icon/i2.png"> -->
-      <meta name="description" content=" <meta name="description" content="ICSD 2025 - the International Conference on Sustainable Development. Register now!">" />
+      <meta name="description" content=" <meta name="description" content="ICSD 2025 - the International Conference on Sustainable Development. Register now!">
       <meta name="keywords" content="icsd 2025,icsd,ICSD2025">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css">
       <link  rel="stylesheet" href="{{asset('themes/home/css/rajagiri.css') }}">

@@ -30,7 +30,7 @@
                              <th scope="col"> Country</th>
                              <th scope="col"> ICSD member </th>
                              <th scope="col"> Regular</th>
-                             <th scope="col">Early Bird(01/09/24 – 20/09/24)</th>
+                             <th scope="col">Early Bird(01/09/24 – 30/09/24)</th>
                              <th scope="col"> Spot</th>
                            </tr>
                          </thead>
@@ -96,17 +96,15 @@
                          </tbody>
                        </table>
                        <p> *The fee covers a conference kit, 3 lunches, 2 dinners, 7 Snacks, and a transportation fee for the field trip. </p>
-
-	<p>*Regular registration ends on 15th November 2024</p>
-
-                      <p> *Early bird registration ends on 20th October 2024.
+	                    <p>*Regular registration ends on 31st October 2024</p>
+                      <p> *Early bird registration ends on 30th September 2024.
                       </p>
-                      <p>	Bank Details<br>
+                      {{-- <p>	Bank Details<br>
 Account name: Rajagiri College of Social Sciences, Kalamassery <br>
 Account No. :0224053000005056 <br>
 Bank: South Indian Bank <br>
 IFSC/NEFT Code: SIBL0000224
-</p>
+</p> --}}
           
           
           
@@ -161,7 +159,7 @@ IFSC/NEFT Code: SIBL0000224
          </div>
       </section>
 
-      <img src="{{ asset('themes/home/images/croud.jpg') }}" class="img-fluid">
+      <img src="{{ asset('themes/home/images/croud.jpg') }}" class="w-full img-fluid" style="width: 100%;">
 
       @stop
       @section("script")   

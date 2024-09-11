@@ -552,7 +552,7 @@
             </div>
         </div>
         <div class="">
-            <div class="event-date shadow p-3 rounded" style="background-color:#a6aadf33;">
+            <div class="event-date shadow p-4 rounded" style="background-color:#a6aadf33;">
                 <h5>October 15, 2024</h5>
                 <h3>Submission of Full Paper</h3>
                 <div class="text-right">

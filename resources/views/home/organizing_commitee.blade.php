@@ -225,6 +225,26 @@ HES-SO, Switzerland</h3>
  </div>
 </div>
 
+<div class="speakers_txt_in_bg ">
+   <div class="speakers_txt org_cmt_bg">
+      <div>
+         <img src="{{ asset('themes/home/images/organising-committee/12.jpg') }}" class="img-fluid" alt="speakers">
+         <h2>Dr Manish K. Jha 
+
+
+</h2>
+<!--         <h3>Assistant Professor-->
+<!--Department of Social Work-->
+<!--Northern Michigan University</h3>-->
+      </div>
+   </div>
+   <div class="speakers__txt_in org_cmt_bg_in">
+    <p> 
+
+      Manish K. Jha is a Professor of Community Organisation & Development Practice and former Dean of the School of Social Work, Tata Institute of Social Sciences (TISS), Mumbai. His research interests include Urban Poverty, housing, Migration, Political Economy of Development, Social Justice, Humanitarian & Disaster response, and New Middle Classes. He contributes to critical governance studies, urban studies, Migration, and critical democratic processes through his research, writings and field engagements. He teaches Social and Public Policy, Social Action, Advocacy and Movements, Community Organisation, and Migration and Politics courses. He has been a visiting Fellow at the School of Oriental and African Studies (SOAS), University College Dublin (UCD), University of Chicago, University of Durham, UK, Gothenburg University, Sweden and other places. He has extensively contributed to international journals and edited volumes on migration, disaster, community organisation, politics, populism and social justice. His recent books include Beyond Consumption: India's New Middle Class in The Neo-Liberal Times published by Routledge (2022) and Data Centres as Infrastructure: Frontiers of Digital Governance in Contemporary India, published by Orient BlackSwan (2022) and Traversing Bihar: Politics of Development and Social Justice, published by OBS. He is the Editor of the Indian Journal of Social Work (TISS) and Co-editor of the International Journal of Community and Social Development (Sage). He has led several international and national collaborative projects sponsored by the British Council, Erasmus, the University of Chicago, ICSSR, etc. He is an honorary member of governing boards of research organizations and NGOs. His collaborative research project on Urban resettlement and Housing with the University of Chicago has resulted in many significant publications.    </p>
+ </div>
+</div>
+
 <div class="row oc_blst_in">
 <h6 style="    font-size: 27px;
     font-weight: 700;
