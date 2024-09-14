@@ -26,7 +26,7 @@
 <li> The abstract should be within 300 words of text including the title and keywords (MS Word Doc.) </li> 
 <li> The text should be arranged according to the following headlines: Objectives, Design, Model, Result and conclusion. </li> 
 <li> It is essential that you specify the sub-theme to which your abstract pertains when submitting it. </li>
-<li>The abstract for paper and poster presentations should be submitted to CMT on or before 15th July 2024 (IST). </li>
+<li>The abstract for paper and poster presentations should be submitted to CMT on or before 15th September               2024 (IST). </li>
 <!--<li>Posters should be submitted to the conference secretariate (email: icsd2025@rajagiri.edu) on or before 15th July 2024 (IST).</li>-->
 </ul>
 
@@ -61,11 +61,11 @@
                
                
                
-                <div class="col-md-7" style="background-color:#eeeeee;width:100%;padding-top:20px;padding-bottom:20px;">  
+                <div class="col-md-7 mt-4" style="background-color:#eeeeee;width:100%;padding: 2rem; border-radius: 1.5rem;">  
                
                <h2 style="color:#0b0b8b;font-weight:bold;"> Call for Workshop/Panel Proposals </h2>
 
-<p style="text-align:justify;"> Interested individuals may submit proposals for a 90-minute workshop or a panel discussion (maximum of four panelists on a theme, excluding the chair, with each panelist given 10 minutes to speak). The panel discussion and workshop topics should be related to the conference's theme (or sub-themes). Proposals should be submitted to the conference secretariate (email: icsd2025@rajagiri.edu) on or before 15th July 2024 (IST).  </p> 
+<p style="text-align:justify;"> Interested individuals may submit proposals for a 90-minute workshop or a panel discussion (maximum of four panellists on a theme, excluding the chair, with each panellist given 10 minutes to speak). The panel discussion and workshop topics should be related to the conference's theme (or sub-themes). Proposals should be submitted to the conference secretariate (email: icsd2025@rajagiri.edu) on or before 15th September 2024 (IST).  </p> 
 <!--<ul class="cfp"> -->
     
 <!--    <li> Oral Presentation </li> -->
