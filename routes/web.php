@@ -67,6 +67,7 @@ Route::get('/track-7','FrontendController@track_7')->name('track_7');
 Route::get('/track-8','FrontendController@track_8')->name('track_8');
 Route::get('/track-9','FrontendController@track_9')->name('track_9');
 Route::get('/fee-details','FrontendController@fee_details')->name('fee_details');
+Route::get('/travel-details','FrontendController@travel_details')->name('travel_details');
 
 Route::post('registration-open/email-check', [
     'as' => 'email.registration',

@@ -247,4 +247,14 @@ class FrontendController extends Controller
             ->with("activeSub", $activeSub)
             ->with("page",$page);
     }
+    public function travel_details(){
+        $active = "travel_details";
+        $activeSub = "";
+
+        $page = 'Travel Details';
+        return view('home.travel_details')
+            ->with("active", $active)
+            ->with("activeSub", $activeSub)
+            ->with("page",$page);
+    }
 }
