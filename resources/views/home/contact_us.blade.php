@@ -78,7 +78,7 @@ Cochin - 683104, Kerala, India.
 
 
 <div class="container map_in">
-<h3>Valley Campus </h3>
+<h3 id="valley_campus">Valley Campus </h3>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2825772902456!2d76.35588109999999!3d9.993500899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080db98f31ea6d%3A0xe0458794b319c877!2sRajagiri%20Centre%20for%20Business%20Studies%5BRCBS%5D!5e0!3m2!1sen!2sin!4v1697701267129!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 </div>

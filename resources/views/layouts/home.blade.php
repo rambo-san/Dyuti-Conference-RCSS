@@ -69,6 +69,7 @@
                                  <li> <a href="{{ route('registration_open') }}"> Registration </a>	 </li>
                                  <!--<li> <a href="{{ route('brochure') }}">   Brochure </a>	 </li>-->
                                  <li> <a href="{{ route('contact_us') }}">  Contact Us</a></li>
+
                                  </ul>
                            </div>
                            <div class="nav-overlay-panel"></div>
@@ -77,6 +78,7 @@
                      </div>
                      <a class="rs_nmbr_v" href="tel:+91 - 7356472239	"> <i class="bi bi-telephone-inbound"></i> +91 - 7356472239 ( 8AM - 6PM )</a>
                   </div>
+                  <a href="{{ route('contact_us') }}#valley_campus"><i class="bi bi-geo-alt-fill location-icon bounce "></i></a>
                </div>
             </div>
          </header>

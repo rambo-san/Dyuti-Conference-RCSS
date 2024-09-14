@@ -5,6 +5,9 @@ body {
 	font-family: 'Poppins', sans-serif;
 	font-size: 14px;
 }
+html{
+	scroll-padding-top: 200px;
+}
 
 textarea {
 	height: auto !important
@@ -1319,8 +1322,9 @@ background: #e5f5fb2e;
 }
 
 .top_bar_in {
+	position: relative;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	transition: all 0.4s ease-in-out;
 	align-items: center;
 	background: #ffffff;
@@ -1550,18 +1554,45 @@ border-top-right-radius: 0;
 }
 
 
+.arrow-circle-down {
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 16px 0;
+  }
 
+  /* Bounce animation */
+  .bounce {
+	animation: bounce 2s infinite;
+  }
 
+  @keyframes bounce {
+	0%, 25%, 50%, 75%, 100% {
+	  transform: translateY(0);
+	}
+	40% {
+	  transform: translateY(-15px);
+	}
+	60% {
+	  transform: translateY(-8px);
+	}
+  }
 
-
-
-
-
-
-
-
-
-
+	/* Icon fixed on the right side of the page */
+	.location-icon {
+	   /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 50%); */
+	   color: white;
+	   position: absolute;
+	   top: 15px;
+	   right: 2.5rem;
+	   -webkit-filter: drop-shadow(0px 2px 2px #222);
+	   filter: drop-shadow(0px 2px 3px #222)
+	}
+	   .gradient-icon {
+	   background: linear-gradient(135deg, #02be57, #0493be);
+	   -webkit-background-clip: text;
+	   -webkit-text-fill-color: transparent;
+	}
 
 
 
@@ -4330,7 +4361,8 @@ margin-top: 25px;
 }
 
 .tob__bar__in {
-    align-items: center;
+    align-items: left;
+	justify-content: space-between;
 }
 
 .cbp-af-header .container {
@@ -4648,11 +4680,12 @@ margin-top: 25px;
 .rs_nmbr_v {
 
 	position: absolute;
-    right: 24px;
+    right: 3.8rem;
     top: 16px;
     color: #ffff;
     font-weight: 600;
-    font-size: 14px; display: block;
+    font-size: 12px; display: block;
+	margin-left: 50px;
 
 }
 

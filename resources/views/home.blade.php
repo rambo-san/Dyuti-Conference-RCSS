@@ -2,33 +2,34 @@
 @section("content")
       <!--Main Slider section-->
       <style>
-          .important__dates {
+         
+         .important__dates {
 
-    background-color: #ffffff;
-   
-}
-.temp-container{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:2rem;
-}
-.event-date{
-    height:100%;
-}
-@media (max-width: 1025px){
-.col-md-6 {
- 
-    width: 100%;
-}
-    
-}
-@media (max-width: 768px){
-.temp-container{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:1rem;
-}
-}
+            background-color: #ffffff;
+            
+         }
+         .temp-container{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:2rem;
+         }
+         .event-date{
+            height:100%;
+         }
+         @media (max-width: 1025px){
+         .col-md-6 {
+         
+            width: 100%;
+         }
+            
+         }
+         @media (max-width: 768px){
+         .temp-container{
+            display:grid;
+            grid-template-columns:1fr;
+            gap:1rem;
+         }
+         }
 
       </style>
       <section>
