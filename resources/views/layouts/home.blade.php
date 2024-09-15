@@ -40,6 +40,7 @@
                         <ul class="top_menu mb_hide_oy">
                             
                            <li>  <a href="{{ route('accommodation') }}">  Accommodation	 </a> </li>
+                           <li>  <a href="{{ route('travel_details') }}">  Travel Details	 </a> </li>
                            <li>  <a href="{{ route('tourist_attraction') }}">  Tourist Attractions	 </a> </li>
                            <li>  <a href="{{ route('organizing_committee') }}">  Advisory committee 	</a> </li>
                            <li> <a href="{{ route('brochure') }}">   Brochure 	</a> </li>
