@@ -158,7 +158,34 @@ class RegistrationController extends Controller
         }
         $registration = $this->registrationRepository->saveReg3($formData);
         Session::put('form_no', '3');
-        return redirect('/registration4');
+        if($formData['nationality'] == 'indian'){
+            return redirect('/registration4');
+        }
+        else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 1){
+            return redirect('https://buy.stripe.com/7sI7ugdNY0rnfYY4gB');
+        }
+        else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 0){
+            return redirect('https://buy.stripe.com/14k01OaBM4HD7ssdR7');
+        }
+        else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Student' && $formData['icsd'] == 1){
+            return redirect('https://buy.stripe.com/6oE29W11c4HD9AA00n');
+        }
+        else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Student' && $formData['icsd'] == 0){
+            return redirect('https://buy.stripe.com/4gw8yk4do1vr144bJ1');
+        }
+        
+        else if($formData['nationality'] == 'Developed Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 1){
+            return redirect('https://buy.stripe.com/eVa6qc25gb619AA3cw');
+        }
+        else if($formData['nationality'] == 'Developed Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 0){
+            return redirect('https://buy.stripe.com/9AQ8ykaBM0rn1446oE');
+        }
+        else if($formData['nationality'] == 'Developed Countries' && $formData['user_type']=='Student' && $formData['icsd'] == 1){
+            return redirect('https://buy.stripe.com/eVa01OeS20rn000bJ4');
+        }
+        else if($formData['nationality'] == 'Developed Countries' && $formData['user_type']=='Student' && $formData['icsd'] == 0){
+            return redirect('https://buy.stripe.com/dR67ug39kde90003cu');
+        }
     }
 
 
