@@ -39,7 +39,7 @@ class RegistrationController extends Controller
 
         $amount = '';
         $email = '';
-
+        $formData = $request->all();
         try {
 
             //$session = \Stripe\Checkout\Session::retrieve($checkout_token);
@@ -55,8 +55,23 @@ class RegistrationController extends Controller
             $payer_email = $payer->email;
             $payer_name = $payer->name;
 
-            return $payment_status. " ". $payment_amount. " ". $payer_email;
-            //find using $payer_email and save
+            // return $payment_status. " ". $payment_amount. " ". $payer_email;
+            if($payment_status == 'succeeded') {
+                $registrationData = [
+                    'amount' => $payment_amount,
+                    'currency' => $payment_intent->currency,
+                ];
+
+                $this->registrationRepository->savePaymentDetails($registrationData);
+                if($formData['email']==$payer_email){
+                    return redirect('/registration4');
+                }else{
+                    return redirect()->route('registration3')->with('error','Email missmatch, contact admin');
+                }
+            }
+            else{
+                return redirect()->route('registration3')->with('error','Please Payment Error');
+            }            //find using $payer_email and save
 
         }catch(Exception $e) {
             return $e->getMessage();
@@ -157,8 +172,9 @@ class RegistrationController extends Controller
             $formData["proof"] = "reciept/{$filename}";
         }
         $registration = $this->registrationRepository->saveReg3($formData);
-        Session::put('form_no', '3');
+        Session::put('form_no', '4');
         if($formData['nationality'] == 'indian'){
+            Session::put('form_no', '3');
             return redirect('/registration4');
         }
         else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 1){
