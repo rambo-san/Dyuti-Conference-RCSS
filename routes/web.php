@@ -22,13 +22,13 @@ Route::get('/migration', function () {
 });
 Route::get('/','RegistrationController@home')->name('home');
 
-
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/registration-open', [App\Http\Controllers\RegistrationController::class, 'index'])->name('registration_open');
 Route::get('/registration2', [App\Http\Controllers\RegistrationController::class, 'registration2'])->name('registration2');
 Route::get('/registration3', [App\Http\Controllers\RegistrationController::class, 'registration3'])->name('registration3');
 Route::get('/registration4', [App\Http\Controllers\RegistrationController::class, 'registration4'])->name('registration4');
 Route::get('/registration5', [App\Http\Controllers\RegistrationController::class, 'registration5'])->name('registration5');
+Route::get('/registration/confirmation/{checkout_token}', [App\Http\Controllers\RegistrationController::class, 'confirmation'])->name('verification');
 
 Route::post('registration2/store-reg2', [
     'as' => 'registration2.store-reg2',

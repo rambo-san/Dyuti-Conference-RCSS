@@ -8,14 +8,18 @@ use Illuminate\Support\Facades\Session;
 use App\Data\Repositories\Registration\RegistrationRepository;
 use App\Http\Requests\RegistrationRequest;
 use App\Mail\CustomMail;
+use Exception;
 use Mail;
+use Stripe\Checkout\Session as CheckoutSession;
+use Stripe\Stripe;
 
 class RegistrationController extends Controller
 { 
     private $registrationRepository;
-
+    
     public function __construct(RegistrationRepository $registrationRepository) {
         $this->registrationRepository = $registrationRepository;
+        Stripe::setApiKey(env("STRIPE_SECRET"));
     }
 
     public function home(){
@@ -27,6 +31,31 @@ class RegistrationController extends Controller
             ->with("active", $active)
             ->with("activeSub", $activeSub)
             ->with("page",$page);
+    }
+
+    public function confirmation(Request $request, $checkout_token) {
+
+        $amount = '';
+        $email = '';
+
+        try {
+            $session = \Stripe\Checkout\Session::retrieve($checkout_token);
+            $payer = $session->customer_details;
+
+            $payment_intent_id = $session->payment_intent;
+            $payment_intent = \Stripe\PaymentIntent::retrieve($payment_intent_id);
+
+            $payment_status = $payment_intent->status; // value will be "complete" if payment success
+            $payment_amount = $payment_intent->amount_received;
+            $payer_email = $payer->email;
+            $payer_name = $payer->name;
+
+            //find using $payer_email and save
+
+        }catch(Exception $e) {
+
+        }
+
     }
 
     public function index()
