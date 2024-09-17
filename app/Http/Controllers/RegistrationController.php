@@ -12,14 +12,16 @@ use Exception;
 use Mail;
 use Stripe\Checkout\Session as CheckoutSession;
 use Stripe\Stripe;
+use Stripe\StripeClient;
 
 class RegistrationController extends Controller
 { 
     private $registrationRepository;
-    
+    private $stripe;
+
     public function __construct(RegistrationRepository $registrationRepository) {
         $this->registrationRepository = $registrationRepository;
-        Stripe::setApiKey(env("STRIPE_SECRET"));
+        $this->stripe = new StripeClient("sk_test_tR3PYbcVNZZ796tH88S4VQ2u");
     }
 
     public function home(){
@@ -39,21 +41,25 @@ class RegistrationController extends Controller
         $email = '';
 
         try {
-            $session = \Stripe\Checkout\Session::retrieve($checkout_token);
+
+            //$session = \Stripe\Checkout\Session::retrieve($checkout_token);
+            $session = $this->stripe->checkout->sessions->retrieve($checkout_token, []);
+
             $payer = $session->customer_details;
 
             $payment_intent_id = $session->payment_intent;
-            $payment_intent = \Stripe\PaymentIntent::retrieve($payment_intent_id);
+            $payment_intent = $this->stripe->paymentIntents->retrieve($payment_intent_id);
 
-            $payment_status = $payment_intent->status; // value will be "complete" if payment success
+            $payment_status = $payment_intent->status; //value will be "complete" if payment success
             $payment_amount = $payment_intent->amount_received;
             $payer_email = $payer->email;
             $payer_name = $payer->name;
 
+            return $payment_status. " ". $payment_amount. " ". $payer_email;
             //find using $payer_email and save
 
         }catch(Exception $e) {
-
+            return $e->getMessage();
         }
 
     }
