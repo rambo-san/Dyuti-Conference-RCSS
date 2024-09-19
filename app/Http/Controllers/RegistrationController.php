@@ -21,7 +21,7 @@ class RegistrationController extends Controller
 
     public function __construct(RegistrationRepository $registrationRepository) {
         $this->registrationRepository = $registrationRepository;
-        $this->stripe = new StripeClient("sk_test_tR3PYbcVNZZ796tH88S4VQ2u");
+        $this->stripe = new StripeClient("sk_test_VQVYmcwZYbhHD0lTWTOgzkw500PSDOQUv6");
     }
 
     public function home(){
@@ -47,11 +47,10 @@ class RegistrationController extends Controller
 
             $payer = $session->customer_details;
 
-            $payment_intent_id = $session->payment_intent;
-            $payment_intent = $this->stripe->paymentIntents->retrieve($payment_intent_id);
+            $payment_status = $session->status; //value will be "complete" if payment success
+            $payment_amount = $session->amount_total;
+            $currency = $session->currency;
 
-            $payment_status = $payment_intent->status; //value will be "complete" if payment success
-            $payment_amount = $payment_intent->amount_received;
             $payer_email = $payer->email;
             $payer_name = $payer->name;
 
@@ -59,7 +58,7 @@ class RegistrationController extends Controller
             if($payment_status == 'succeeded') {
                 $registrationData = [
                     'amount' => $payment_amount,
-                    'currency' => $payment_intent->currency,
+                    'currency' => $currency,
                 ];
 
                 $this->registrationRepository->savePaymentDetails($registrationData);
