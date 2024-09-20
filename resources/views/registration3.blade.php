@@ -45,7 +45,7 @@
    
                   <!-- <div class="file-upload-wrapper" data-text="Select your file!"> -->
                   <div class="udp_bg" data-text="Select your file!">
-                     <input name="proof" type="file" class="file-upload-field form-control" value="">
+                     <input id="icsd_proof" name="proof" type="file" class="file-upload-field form-control" value="">
                   </div>
                   <p> PDF, JPG, JPEG, PNG - Max 100 MB  </p>
                   
@@ -231,7 +231,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
       <script>
       
-         
+         $('#icsd').on('change', function() {
+            if ($(this).val() == '1') {
+               $('#icsd_proof').attr('required', true);
+            } else {
+               $('#icsd_proof').removeAttr('required');
+            }
+         });
          $(document).ready(function() {
 
 

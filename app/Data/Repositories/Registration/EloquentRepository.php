@@ -53,6 +53,24 @@ class EloquentRepository implements RegistrationRepository
         return $registration;
     }
 
+    public function saveConfData(array $data)
+    {
+        $registration = Registration::find(session('registration_id'));
+
+        if (!$registration) {
+            return null;
+        }
+
+        $registration->update($data);
+
+        return $registration;
+    }
+
+    public function getByAttribute($attribute, $value)
+    {
+        return Registration::where($attribute, $value)->first();
+    }
+
     public function getRegistrationById($id)
     {
         $registration = Registration::find($id);

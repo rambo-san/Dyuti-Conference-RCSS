@@ -21,7 +21,7 @@ class RegistrationController extends Controller
 
     public function __construct(RegistrationRepository $registrationRepository) {
         $this->registrationRepository = $registrationRepository;
-        $this->stripe = new StripeClient("sk_test_VQVYmcwZYbhHD0lTWTOgzkw500PSDOQUv6");
+        $this->stripe = new StripeClient(env('STRIPE_SECRET'));
     }
 
     public function home(){
@@ -39,44 +39,65 @@ class RegistrationController extends Controller
 
         $amount = '';
         $email = '';
-        $formData = $request->all();
+        $dataVar = $this->registrationRepository->getAll();
         try {
-
             //$session = \Stripe\Checkout\Session::retrieve($checkout_token);
             $session = $this->stripe->checkout->sessions->retrieve($checkout_token, []);
-
+            \Log::info('Stripe Session: ' . json_encode($session));
+    
             $payer = $session->customer_details;
-
+    
             $payment_status = $session->status; //value will be "complete" if payment success
             $payment_amount = $session->amount_total;
             $currency = $session->currency;
-
+    
             $payer_email = $payer->email;
             $payer_name = $payer->name;
 
-            // return $payment_status. " ". $payment_amount. " ". $payer_email;
-            if($payment_status == 'succeeded') {
+            $formData = $this->registrationRepository->getByAttribute('email',$payer_email);
+
+            
+            $active = "registration";
+            $activeSub = "";
+            $page = 'Registration';
+    
+            \Log::info('Form Data: ' . json_encode($formData));
+    
+            // Check if payment status is 'complete'
+            if ($payment_status == 'complete') {
                 $registrationData = [
                     'amount' => $payment_amount,
                     'currency' => $currency,
                 ];
-
-                $this->registrationRepository->savePaymentDetails($registrationData);
-                if($formData['email']==$payer_email){
-                    return redirect('/registration4');
-                }else{
-                    return redirect()->route('registration3')->with('error','Email missmatch, contact admin');
+    
+                $this->registrationRepository->saveConfData($registrationData);
+                
+                if ($formData!=null && $formData['email'] == $payer_email) {
+                    Session::put('form_no', '4');
+                    
+                    return redirect()->route('registration5')->with("active", $active)
+                    ->with("activeSub", $activeSub)
+                    ->with("page",$page);
+                } else {
+                    Session::put('form_no', '2');
+                   
+                    return redirect()->route('registration3')->with('error', 'Email mismatch, contact admin')->with("active", $active)
+                    ->with("activeSub", $activeSub)
+                    ->with("page",$page);
                 }
+            } else {
+                Session::put('form_no', '2'); 
+                return redirect()->route('registration3')->with('error', 'Payment Error')
+                    ->with("active", $active)
+                    ->with("activeSub", $activeSub)
+                    ->with("page", $page);
             }
-            else{
-                return redirect()->route('registration3')->with('error','Please Payment Error');
-            }            //find using $payer_email and save
-
-        }catch(Exception $e) {
+        } catch (Exception $e) {
+            \Log::error('Error: ' . $e->getMessage());
             return $e->getMessage();
         }
-
     }
+    
 
     public function index()
     {
@@ -177,8 +198,11 @@ class RegistrationController extends Controller
             return redirect('/registration4');
         }
         else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 1){
-            return redirect('https://buy.stripe.com/7sI7ugdNY0rnfYY4gB');
+            return redirect('https://buy.stripe.com/test_dR629AgzRerF1Mc9AA');
         }
+        // else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 1){
+        //     return redirect('https://buy.stripe.com/7sI7ugdNY0rnfYY4gB');
+        // }
         else if($formData['nationality'] == 'Developing Countries' && $formData['user_type']=='Professional' && $formData['icsd'] == 0){
             return redirect('https://buy.stripe.com/14k01OaBM4HD7ssdR7');
         }
