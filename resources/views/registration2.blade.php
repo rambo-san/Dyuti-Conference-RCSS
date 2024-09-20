@@ -272,7 +272,7 @@
                </div>
                <div class="col-md-6">
                   <div class="col-md-12 reg__frm">
-                     <label>  Email <span class=""> * </span> </label> 
+                     <label>  Email <span class="tsml"> ( Put the same email also in the payment page )  </span> <span class=""> * </span> </label> 
                      <div class="input-group">  <input type="email" id="email" class="form-control" name="email" required value="{{ old('email') ?? '' }}"> </div>
                   </div>
                </div>
