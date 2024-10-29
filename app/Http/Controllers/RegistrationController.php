@@ -193,7 +193,7 @@ class RegistrationController extends Controller
         }
         $registration = $this->registrationRepository->saveReg3($formData);
         Session::put('form_no', '4');
-        if($formData['nationality'] == 'indian'){
+        if($formData['nationality'] == 'Indian'){
             Session::put('form_no', '3');
             return redirect('/registration4');
         }
